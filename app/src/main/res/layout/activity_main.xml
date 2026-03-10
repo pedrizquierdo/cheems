@@ -90,6 +90,30 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <ImageButton
+            android:id="@+id/card10"
+            android:layout_width="match_parent"
+            android:layout_height="130dip"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/card11"
+            android:layout_width="match_parent"
+            android:layout_height="130dip"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/card12"
+            android:layout_width="match_parent"
+            android:layout_height="130dip"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/btnRes"
             android:layout_margin="20dp"
