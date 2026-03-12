@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,7 +32,14 @@ class WinnerFormActivity : AppCompatActivity(), View.OnClickListener {
                 val name = findViewById<EditText>(R.id.text_name).text.toString()
                 val nickname = findViewById<EditText>(R.id.text_nickname).text.toString()
 
-                Winner().save(this, name, nickname)
+                val result = Winner().save(this, name, nickname)
+
+                if(result){
+                    Toast.makeText(this, "Ganador registrado", Toast.LENGTH_LONG).show()
+                    finish()
+                } else {
+                    Toast.makeText(this, "Error al registrar ganador", Toast.LENGTH_LONG).show()
+                }
 
             }
         }

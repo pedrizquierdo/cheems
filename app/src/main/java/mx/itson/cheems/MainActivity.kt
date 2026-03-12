@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnNewWinner = findViewById<View>(R.id.btn_new_winner) as Button
         btnNewWinner.setOnClickListener(this)
+        btnNewWinner.visibility = View.GONE
         start()
         Toast.makeText(this, "Bienvenido Jugador", Toast.LENGTH_LONG).show()
     }
@@ -89,13 +90,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             gameOver = true
             vibrate()
             Toast.makeText(this, "¡Encontraste al Cheems Master! Ganaste bro", Toast.LENGTH_LONG).show()
+            findViewById<Button>(R.id.btn_new_winner).visibility = View.VISIBLE
             revealAllCards()
         }
         else if (card == gameOverCard) {
             gameOver = true
             vibrate()
             Toast.makeText(this, "¡Perdiste! JAJAJA FRACASADO", Toast.LENGTH_LONG).show()
-
+            findViewById<Button>(R.id.btn_new_winner).visibility = View.GONE
             revealAllCards()
         }
         else {
@@ -107,7 +109,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 gameOver = true
                 vibrate()
                 Toast.makeText(this, "Ganaste bro", Toast.LENGTH_LONG).show()
-
+                findViewById<Button>(R.id.btn_new_winner).visibility = View.VISIBLE
                 revealAllCards()
             }
         }

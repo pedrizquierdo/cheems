@@ -20,8 +20,8 @@ class Winner {
         this.nickname = nickname
     }
 
-    fun save(context: Context, name: String, nickname: String){
-        try {
+    fun save(context: Context, name: String, nickname: String): Boolean {
+        return try {
             val cheemsDB = CheemsDB(context, "cheems.db", null, 1)
             val db : SQLiteDatabase = cheemsDB.writableDatabase
 
@@ -29,10 +29,12 @@ class Winner {
             values.put("name", name)
             values.put("nickname", nickname)
 
-            db.insert("Winner", null, values)
+            val result = db.insert("Winner", null, values)
             db.close()
+            result != -1L
         }catch(ex: Exception){
             Log.e("Error saving winner", ex.message.toString())
+            false
         }
     }
 
