@@ -123,7 +123,17 @@
             android:text="Restart Game"/>
     </LinearLayout>
 
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Felicidades, Ganaste!"/>
 
-
+    <Button
+        android:id="@+id/btn_new_winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrate"/>
 
 </LinearLayout>
+

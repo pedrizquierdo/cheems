@@ -1,6 +1,7 @@
 package mx.itson.cheems
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -8,6 +9,7 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -33,8 +35,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Winner().save(this, "Nicolas Becerra", "Nicotrans")
-        Winner().getAll(this)
+        //Winner().save(this, "Nicolas Becerra", "Nicotrans")
+        //Winner().getAll(this)
+
+        val btnNewWinner = findViewById<View>(R.id.btn_new_winner) as Button
+        btnNewWinner.setOnClickListener(this)
         start()
         Toast.makeText(this, "Bienvenido Jugador", Toast.LENGTH_LONG).show()
     }
@@ -139,6 +144,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.card10 -> {flip(10)}
             R.id.card11 -> {flip(11)}
             R.id.card12 -> {flip(12)}
+            R.id.btn_new_winner -> {
+                val intentWinnerForm = Intent(this, WinnerFormActivity::class.java)
+                startActivity(intentWinnerForm )
+
+            }
         }
     }
 }
