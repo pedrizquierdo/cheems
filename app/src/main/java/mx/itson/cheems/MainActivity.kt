@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //Winner().save(this, "Nicolas Becerra", "Nicotrans")
         //Winner().getAll(this)
 
+        val btnListWinners = findViewById<View>(R.id.btn_list_winners) as Button
+        btnListWinners.setOnClickListener(this)
+
         val btnNewWinner = findViewById<View>(R.id.btn_new_winner) as Button
         btnNewWinner.setOnClickListener(this)
         btnNewWinner.visibility = View.GONE
@@ -63,6 +66,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         cheems_master = (1..12).random()
         gameOverCard = (1 .. 12).random()
 
+        findViewById<Button>(R.id.btn_new_winner).visibility = View.GONE
         Log.d("Valor de la carta fracasada", "La carta fracasada es ${gameOverCard.toString()}")
         Log.d("Valor de la carta master", "La carta master es ${cheems_master.toString()}")
     }
@@ -149,8 +153,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_new_winner -> {
                 val intentWinnerForm = Intent(this, WinnerFormActivity::class.java)
                 startActivity(intentWinnerForm )
-
+                start()
+            }
+            R.id.btn_list_winners -> {
+                val intentWinnerList = Intent(this, WinnerListActivity::class.java)
+                startActivity(intentWinnerList)
             }
         }
+        }
     }
-}
